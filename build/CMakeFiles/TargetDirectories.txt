@@ -1,0 +1,3 @@
+/home/s23380426@unn.global/2_paranew/build/CMakeFiles/main.dir
+/home/s23380426@unn.global/2_paranew/build/CMakeFiles/edit_cache.dir
+/home/s23380426@unn.global/2_paranew/build/CMakeFiles/rebuild_cache.dir
