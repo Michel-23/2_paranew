@@ -7,10 +7,11 @@ private:
     int32_t _num;
     int32_t _denom;
 public:
-    //Fraction(int32_t num, int32_t denom); // создание конструктора
+    Fraction();
     void SetDenom(int32_t newDenom); // создание функции
     void Print();
     int nod(int32_t first, int32_t second);
+    int CelCh();
 
     Fraction(int32_t numm, int32_t denomm); // создание конструктора
 

@@ -1,10 +1,9 @@
 #include "class.h"
 
-// Fraction::Fraction(int32_t num, int32_t denom){
-//     _num = num;
-//     SetDenom(denom);
-// }
-
+Fraction::Fraction(){
+    _num =0;
+    _denom = 1;
+}
 
 // реализация функции внутри класса Fraction
 void Fraction::SetDenom(int32_t newDenom){ //реализация функции внутри класса Fraction
@@ -16,11 +15,38 @@ void Fraction::SetDenom(int32_t newDenom){ //реализация функции
 
 // функция печати
 void Fraction::Print(){
-    std::cout << _num << "/" << _denom << std::endl;
+    int cel = CelCh();
+    if (cel == 0){
+        if (_num == 0){
+            std::cout << 0 << std::endl;
+        }    
+        else{
+            std::cout << _num << "/" << _denom << std::endl;
+        }
+    }
+    else{
+        std::cout << cel << " ";
+        if (_num - cel*_denom !=0)
+            std::cout << _num - cel*_denom  << "/" << _denom;
+        std::cout << std::endl;
+    }
+
+}
+
+int Fraction::CelCh(){
+    int temp;
+    if (_num > _denom){
+        temp = floor(_num / _denom);
+        //_num -= temp*_denom;
+    }
+    else{
+        temp = 0;
+    }
+    return temp;
 }
 
 // реализация функции, сокращающей дробь
-Fraction::Fraction(int32_t numm, int32_t denomm){ // получение новых значений 
+Fraction::Fraction(int32_t numm, int32_t denomm){
     int temp = nod(fabs(numm), fabs(denomm)); // Нод
     if (temp > 1){ // сокращение
         numm /= temp;
@@ -42,7 +68,7 @@ int Fraction::nod(int32_t first, int32_t second){
     }
 }
 
-Fraction:: /*это означает обращение к конструктору*/Fraction(double n){
+Fraction:: Fraction(double n){
     int32_t num = (int)(round(n * 10000000));
     int32_t denom = 10000000;
     int temp = nod(fabs(num), fabs(denom)); // Нод
@@ -51,6 +77,5 @@ Fraction:: /*это означает обращение к конструкто�
         denom /= temp;
     }
     _num = num;
-    //SetDenom(denom);
     _denom = denom;
 }
